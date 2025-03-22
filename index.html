@@ -3,321 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sip and Crunch | Edible Cups & Glasses</title>
+    <title>Sip and Crunch | Edible Cups for a Sustainable Future</title>
     <style>
-        /* Global Styles */
         :root {
-            --primary: #4CAF50;
-            --primary-dark: #388E3C;
-            --primary-light: #C8E6C9;
-            --secondary: #795548;
-            --secondary-light: #D7CCC8;
-            --accent: #FFC107;
-            --text: #212121;
-            --text-light: #757575;
-            --background: #FFFFFF;
-            --background-alt: #F5F5F5;
+            --primary: #2e7d32;
+            --secondary: #f9a825;
+            --dark: #333;
+            --light: #f8f9fa;
+            --accent: #e65100;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: var(--background);
-            color: var(--text);
+            color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #5D4037;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-        
-        /* Header */
-        .header {
-            background-color: var(--background);
-            position: fixed;
-            width: 100%;
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
         }
         
-        .header-content {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
         }
         
-        .logo-img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-        
-        .logo-text span {
-            color: var(--secondary);
-        }
-        
-        .nav {
-            display: flex;
-            align-items: center;
+        .logo span {
+            color: var(--accent);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            margin-right: 30px;
-        }
-        
-        .nav-links li {
-            margin: 0 15px;
+            gap: 30px;
         }
         
         .nav-links a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
-            position: relative;
         }
         
         .nav-links a:hover {
             color: var(--primary);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
+        .cta-button {
             background-color: var(--primary);
-            transition: width 0.3s;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
         }
         
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-        
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--text);
-            margin: 2px 0;
-            transition: all 0.3s;
+        .cta-button:hover {
+            background-color: #1b5e20;
         }
         
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('/api/placeholder/1600/900');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding-top: 70px;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-        
-        .hero-text {
-            flex: 1;
-            max-width: 600px;
-        }
-        
-        .hero-text h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-            line-height: 1.2;
-        }
-        
-        .hero-text h1 span {
-            color: var(--secondary);
-        }
-        
-        .hero-text p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: var(--text-light);
-        }
-        
-        .hero-text .tagline {
-            display: inline-block;
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            position: relative;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .eco-badge {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            background-color: var(--accent);
-            color: var(--text);
-            padding: 15px;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
+            background-color: #f1f8e9;
+            padding: 80px 0;
             text-align: center;
-            font-size: 14px;
-            line-height: 1.2;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transform: rotate(10deg);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
         }
         
         /* Features Section */
         .features {
-            background-color: var(--background-alt);
+            padding: 80px 0;
+            background-color: white;
         }
         
-        .features-grid {
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-heading h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
         
         .feature-card {
-            background-color: var(--background);
-            border-radius: 15px;
+            text-align: center;
             padding: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .feature-icon {
@@ -329,71 +153,37 @@
         .feature-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .feature-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-        
-        .feature-card p {
-            color: var(--text-light);
+            color: var(--dark);
         }
         
         /* Products Section */
-        .products-grid {
+        .products {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .product-card {
-            background-color: var(--background);
-            border-radius: 15px;
+            background-color: white;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .product-image {
             height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .product-image img {
             width: 100%;
-            height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--accent);
-            color: var(--text);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 12px;
         }
         
         .product-info {
@@ -401,61 +191,48 @@
         }
         
         .product-info h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
+            color: var(--dark);
         }
         
         .product-info p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
+            margin-bottom: 20px;
+            color: #666;
         }
         
         .product-price {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--primary);
+            margin-bottom: 20px;
         }
         
-        .product-price small {
-            font-size: 14px;
-            color: var(--text-light);
-            text-decoration: line-through;
-            margin-right: 5px;
-        }
-        
-        /* How It Works */
+        /* How It Works Section */
         .how-it-works {
-            background-color: var(--background-alt);
+            padding: 80px 0;
+            background-color: white;
         }
         
         .steps {
             display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
         }
         
         .step {
             flex: 1;
-            padding: 0 20px;
+            min-width: 250px;
             text-align: center;
             position: relative;
-            z-index: 2;
         }
         
         .step-number {
+            width: 50px;
+            height: 50px;
             background-color: var(--primary);
             color: white;
-            width: 60px;
-            height: 60px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -463,209 +240,106 @@
             font-size: 24px;
             font-weight: 700;
             margin: 0 auto 20px;
-            position: relative;
         }
         
         .step h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 15px;
-        }
-        
-        .step p {
-            color: var(--text-light);
-        }
-        
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary-light);
-            z-index: 1;
+            color: var(--dark);
         }
         
         /* Testimonials Section */
         .testimonials {
-            background-color: var(--background);
+            padding: 80px 0;
+            background-color: #f1f8e9;
         }
         
-        .testimonials-wrapper {
-            display: flex;
-            justify-content: space-between;
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .testimonial {
-            background-color: var(--background-alt);
-            border-radius: 15px;
+        .testimonial-card {
+            background-color: white;
             padding: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .testimonial:hover {
-            transform: translateY(-10px);
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
         }
         
-        .testimonial-header {
+        .testimonial-text::before {
+            content: '"';
+            font-size: 60px;
+            color: #e0e0e0;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            z-index: 0;
+        }
+        
+        .customer-info {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
         }
         
-        .testimonial-image {
-            width: 60px;
-            height: 60px;
+        .customer-avatar {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            overflow: hidden;
+            background-color: #e0e0e0;
             margin-right: 15px;
         }
         
-        .testimonial-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .customer-name {
+            font-weight: 600;
         }
         
-        .testimonial-name h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        .testimonial-name p {
-            color: var(--text-light);
+        .customer-title {
             font-size: 14px;
-        }
-        
-        .testimonial-rating {
-            color: var(--accent);
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .testimonial-content {
-            position: relative;
-            padding-left: 20px;
-            border-left: 2px solid var(--primary-light);
-        }
-        
-        .testimonial-content::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            font-size: 40px;
-            color: var(--primary-light);
-            opacity: 0.5;
+            color: #666;
         }
         
         /* Business Section */
         .business {
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-            color: white;
-        }
-        
-        .business .section-title h2 {
-            color: white;
-        }
-        
-        .business .section-title p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .business .section-title::after {
-            background-color: white;
+            padding: 80px 0;
+            background-color: #e8f5e9;
         }
         
         .business-content {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 50px;
         }
         
-        .business-info {
+        .business-text {
             flex: 1;
-        }
-        
-        .business-info ul {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .business-info ul li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .business-info ul li::before {
-            content: '✓';
-            display: inline-block;
-            margin-right: 10px;
-            color: var(--accent);
-            font-weight: 700;
+            min-width: 300px;
         }
         
         .business-image {
             flex: 1;
+            min-width: 300px;
         }
         
         .business-image img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* FAQ Section */
-        .faq {
-            background-color: var(--background-alt);
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background-color: var(--background);
+            width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .faq-question {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .faq-question h4 {
-            font-size: 18px;
-            margin: 0;
-        }
-        
-        .faq-question span {
-            font-size: 20px;
-            color: var(--primary);
-        }
-        
-        .faq-answer {
-            padding: 0 20px 20px;
-            color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         /* CTA Section */
         .cta {
-            background: linear-gradient(to right, var(--secondary), var(--secondary-light));
+            padding: 80px 0;
+            background-color: var(--primary);
             color: white;
             text-align: center;
-            padding: 100px 0;
         }
         
         .cta h2 {
@@ -674,95 +348,50 @@
         }
         
         .cta p {
-            max-width: 600px;
+            font-size: 20px;
+            max-width: 800px;
             margin: 0 auto 30px;
-            color: rgba(255, 255, 255, 0.9);
         }
         
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
         
-        .cta .btn-outline {
-            border-color: white;
-            color: white;
-        }
-        
-        .cta .btn-outline:hover {
+        .secondary-button {
             background-color: white;
-            color: var(--secondary);
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
         }
         
-        /* Newsletter */
-        .newsletter {
-            padding: 60px 0;
-            background-color: var(--primary-light);
-        }
-        
-        .newsletter-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-        
-        .newsletter-text {
-            flex: 1;
-        }
-        
-        .newsletter-text h3 {
-            font-size: 24px;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
-        
-        .newsletter-form {
-            flex: 1;
-            display: flex;
-            gap: 10px;
-            max-width: 500px;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        .secondary-button:hover {
+            background-color: #f1f1f1;
         }
         
         /* Footer */
         footer {
-            background-color: var(--text);
+            background-color: var(--dark);
             color: white;
-            padding: 60px 0 20px;
+            padding: 50px 0 20px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            gap: 30px;
+            margin-bottom: 40px;
         }
         
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background-color: var(--primary);
+            color: var(--secondary);
         }
         
         .footer-links {
@@ -774,8 +403,8 @@
         }
         
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
+            color: #ccc;
             transition: color 0.3s;
         }
         
@@ -786,230 +415,302 @@
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
-        .social-links a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
+        .social-icon {
             color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: background-color 0.3s;
+            font-size: 20px;
         }
         
-        .social-links a:hover {
-            background-color: var(--primary);
-        }
-        
-        .footer-bottom {
+        .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid #444;
+            color: #aaa;
             font-size: 14px;
         }
         
-        /* Media Queries */
-        @media (max-width: 992px) {
-            .hero-content, .business-content, .testimonials-wrapper {
-                flex-direction: column;
-            }
-            
-            .hero-image, .business-image {
-                margin-top: 40px;
-            }
-            
-            .testimonial {
-                max-width: 100%;
-            }
-            
-            .steps {
-                flex-direction: column;
-                gap: 40px;
-            }
-            
-            .steps::before {
-                display: none;
-            }
-            
-            .newsletter-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .newsletter-form {
-                width: 100%;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .hero-text h1 {
-                font-size: 36px;
-            }
-            
-            .cta-buttons {
+            .navbar {
                 flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
                 gap: 15px;
             }
             
-            .cta .btn {
-                width: 100%;
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-heading h2 {
+                font-size: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <header>
         <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">
-                    <div class="logo-text">Sip<span>&Crunch</span></div>
-                </a>
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#business">Business</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    <a href="#shop" class="btn">Shop Now</a>
-                    <div class="menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </nav>
-            </div>
+            <nav class="navbar">
+                <a href="#" class="logo">Sip & <span>Crunch</span></a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#business">For Business</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#products" class="cta-button">Shop Now</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="tagline">♻️ Eco-friendly innovation</div>
-                    <h1>Sip. Bite. <span>Enjoy.</span></h1>
-                    <p>Say goodbye to wasteful cups and hello to a delicious, eco-friendly alternative! Our edible cups are crafted with love, sustainability, and great taste—perfect for coffee, tea, and desserts.</p>
-                    <div style="display: flex; gap: 15px;">
-                        <a href="#products" class="btn">Shop Now</a>
-                        <a href="#how-it-works" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="/api/placeholder/600/450" alt="Edible Cup with Coffee">
-                    <div class="eco-badge">100% Edible & Biodegradable</div>
-                </div>
-            </div>
+            <h1>Sip. Bite. Enjoy.</h1>
+            <p>Say goodbye to wasteful cups and hello to a delicious, eco-friendly alternative! Our edible cups are crafted with love, sustainability, and great taste—perfect for coffee, tea, and desserts.</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section features" id="features">
+    <section class="features" id="features">
         <div class="container">
-            <div class="section-title">
+            <div class="section-heading">
                 <h2>Why Choose Our Edible Cups?</h2>
-                <p>We've combined delicious taste with sustainable innovation</p>
+                <p>Innovative solutions for a sustainable future</p>
             </div>
-            <div class="features-grid">
+            <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">♻️</div>
+                    <div class="feature-icon">🌱</div>
                     <h3>Eco-Friendly & Zero Waste</h3>
-                    <p>No more plastic or paper waste! Our cups are 100% biodegradable and made from natural ingredients.</p>
+                    <p>No more plastic or paper waste! Our cups are 100% biodegradable and edible.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🍪</div>
                     <h3>Delicious & Crunchy</h3>
-                    <p>A perfect treat with your beverage. Enjoy a delightful cookie-like texture that complements your drink.</p>
+                    <p>A perfect treat with your beverage, available in multiple flavors.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">☕</div>
                     <h3>Holds Hot & Cold Drinks</h3>
-                    <p>Stays sturdy while you sip. Our special coating keeps your cup intact for up to 45 minutes.</p>
+                    <p>Stays sturdy while you sip, with a special coating that prevents leakage.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Multiple Flavors</h3>
-                    <p>Choose from Classic, Chocolate, Vanilla, Cinnamon, and limited seasonal varieties.</p>
+                    <div class="feature-icon">🌍</div>
+                    <h3>Sustainable Materials</h3>
+                    <p>Made from natural ingredients that are responsibly sourced.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="section products" id="products">
+    <section class="products" id="products">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Collection</h2>
-                <p>Discover our range of edible cups and glasses</p>
+            <div class="section-heading">
+                <h2>Our Edible Cup Collection</h2>
+                <p>Taste the future of sustainability</p>
             </div>
-            <div class="products-grid">
+            <div class="product-grid">
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/350" alt="Classic Edible Cup">
-                        <div class="product-badge">Bestseller</div>
-                    </div>
+                    <img src="/api/placeholder/300/250" alt="Classic Edible Cup" class="product-image">
                     <div class="product-info">
-                        <h3>Classic Waffle Cup</h3>
-                        <p>Our original edible cup with a sweet, cookie-like texture. Perfect for coffee and hot chocolate.</p>
-                        <div class="product-meta">
-                            <div class="product-price"><small>$14.99</small> $12.99</div>
-                            <a href="#" class="btn">Add to Cart</a>
-                        </div>
+                        <h3>Classic Crunch</h3>
+                        <p>Our signature edible cup with a sweet, cookie-like taste that complements any hot beverage.</p>
+                        <div class="product-price">$14.99 (Pack of 4)</div>
+                        <a href="#" class="cta-button">Add to Cart</a>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/350" alt="Chocolate Edible Cup">
-                    </div>
+                    <img src="/api/placeholder/300/250" alt="Chocolate Edible Cup" class="product-image">
                     <div class="product-info">
-                        <h3>Chocolate Delight Cup</h3>
-                        <p>Rich chocolate-flavored edible cup that pairs perfectly with coffee, milk, or desserts.</p>
-                        <div class="product-meta">
-                            <div class="product-price">$13.99</div>
-                            <a href="#" class="btn">Add to Cart</a>
-                        </div>
+                        <h3>Chocolate Delight</h3>
+                        <p>Rich chocolate-infused edible cups, perfect for coffee, hot chocolate, or desserts.</p>
+                        <div class="product-price">$16.99 (Pack of 4)</div>
+                        <a href="#" class="cta-button">Add to Cart</a>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/350" alt="Vanilla Edible Cup">
-                        <div class="product-badge">New</div>
-                    </div>
+                    <img src="/api/placeholder/300/250" alt="Vanilla Edible Cup" class="product-image">
                     <div class="product-info">
-                        <h3>Vanilla Dream Cup</h3>
-                        <p>Subtle vanilla flavor that enhances your tea or coffee experience with a hint of sweetness.</p>
-                        <div class="product-meta">
-                            <div class="product-price">$13.99</div>
-                            <a href="#" class="btn">Add to Cart</a>
+                        <h3>Vanilla Dream</h3>
+                        <p>Delicate vanilla-flavored cups that add a sweet note to your tea or coffee experience.</p>
+                        <div class="product-price">$15.99 (Pack of 4)</div>
+                        <a href="#" class="cta-button">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-heading">
+                <h2>How It Works</h2>
+                <p>Simple steps to enjoy your edible cup experience</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pour</h3>
+                    <p>Pour your favorite tea, coffee, or dessert into our edible cup.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Sip</h3>
+                    <p>Enjoy your beverage without worrying about leaks!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Bite</h3>
+                    <p>Take a bite – because your cup is as delicious as your drink!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-heading">
+                <h2>What Our Customers Say</h2>
+                <p>Join thousands of happy Sip and Crunch fans</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>I was skeptical at first, but these edible cups are amazing! They hold my coffee perfectly and taste delicious. Plus, I love that I'm helping the environment.</p>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-avatar"></div>
+                        <div>
+                            <div class="customer-name">Sarah J.</div>
+                            <div class="customer-title">Coffee Enthusiast</div>
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/350" alt="Cocktail Edible Glass">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Our café has received so many compliments since switching to Sip and Crunch cups. Our customers love the novelty and the eco-friendly aspect. Great for business!</p>
                     </div>
-                    <div class="product-info">
-                        <h3>Party Pack Edible Glasses</h3>
-                        <p>Set of 6 edible cocktail glasses. Perfect for parties, events, and creating memorable experiences.</p>
-                        <div class="product-meta">
-                            <div class="product-price"><small>$29.99</small> $24.99</div>
+                    <div class="customer-info">
+                        <div class="customer-avatar"></div>
+                        <div>
+                            <div class="customer-name">Michael T.</div>
+                            <div class="customer-title">Café Owner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>I use these for my homemade ice cream and they're perfect! No more wasteful plastic cups, and my kids love that they can eat the container too!</p>
+                    </div>
+                    <div class="customer-info">
+                        <div class="customer-avatar"></div>
+                        <div>
+                            <div class="customer-name">Lisa M.</div>
+                            <div class="customer-title">Home Chef</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="business" id="business">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Sip and Crunch for Business</h2>
+                <p>Sustainable solutions for your cafe, restaurant, or event</p>
+            </div>
+            <div class="business-content">
+                <div class="business-text">
+                    <h3>Bulk Ordering Available</h3>
+                    <p>We offer special pricing for businesses looking to make a positive environmental impact while delighting their customers. Our edible cups are perfect for:</p>
+                    <ul>
+                        <li>Cafés and coffee shops</li>
+                        <li>Restaurants and dessert shops</li>
+                        <li>Catering services</li>
+                        <li>Corporate events</li>
+                        <li>Weddings and special occasions</li>
+                    </ul>
+                    <p>Custom branding options are also available for orders over 500 units.</p>
+                    <a href="#contact" class="cta-button">Contact Our Sales Team</a>
+                </div>
+                <div class="business-image">
+                    <img src="/api/placeholder/400/300" alt="Business customers using edible cups">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Join the Sustainable Revolution!</h2>
+            <p>Switch to edible cups and make every sip count—for you and the planet.</p>
+            <div class="cta-buttons">
+                <a href="#products" class="secondary-button">Shop Now</a>
+                <a href="#contact" class="secondary-button">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sip & Crunch</h3>
+                    <p>Innovative edible cups for a sustainable future. Enjoy your beverages guilt-free!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Bestsellers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">Bulk Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sip and Crunch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
